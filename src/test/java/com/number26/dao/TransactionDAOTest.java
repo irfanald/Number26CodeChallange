@@ -15,21 +15,21 @@ public class TransactionDAOTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	transactionDAO = new TransactionDAO();
-	transactionDAO.addTransaction(10,new Transaction(10, 5000, "cars"));
-	transactionDAO.addTransaction(11,new Transaction(11, 10000, "shops",10));
-	transactionDAO.addTransaction(12,new Transaction(12, 1000, "shops",11));
-	transactionDAO.addTransaction(13,new Transaction(13, 3000, "cars",10));
+	transactionDAO.addTransaction(50,new Transaction(50, 5000, "cars"));
+	transactionDAO.addTransaction(51,new Transaction(51, 10000, "shops",50));
+	transactionDAO.addTransaction(52,new Transaction(52, 1000, "shops",51));
+	transactionDAO.addTransaction(53,new Transaction(53, 3000, "cars",50));
 	
 	}
 
 	@Test
 	public void testAddTransaction() {
-		transactionDAO.addTransaction(15,new Transaction(15, 3000, "cars",12));
+		transactionDAO.addTransaction(55,new Transaction(55, 3000, "cars",52));
 	}
 
 	@Test
 	public void testGetTransactionById() {
-		Transaction transaction = transactionDAO.getTransactionById(10);
+		Transaction transaction = transactionDAO.getTransactionById(50);
 		assertTrue(transaction.getAmount()==5000.0);
 		assertTrue(transaction.getType().equals("cars"));
 		assertTrue(transaction.getParent_id()==0);
@@ -43,7 +43,7 @@ public class TransactionDAOTest {
 
 	@Test
 	public void testGetSumOfAllLinkedTransactionsById() {
-		double sum = transactionDAO.getSumOfAllLinkedTransactionsById(10);
+		double sum = transactionDAO.getSumOfAllLinkedTransactionsById(50);
 		assertTrue(sum == 19000.0);
 
 	}

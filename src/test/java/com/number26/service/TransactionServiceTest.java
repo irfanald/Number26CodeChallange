@@ -24,8 +24,8 @@ public class TransactionServiceTest {
 	public static void setUpBeforeClass() throws Exception {
 		transactionService = new TransactionService();
 		transactionService.createTransaction(10,new Transaction(10, 5000, "cars"));
-		transactionService.createTransaction(11,new Transaction(11, 1000, "shops",10));
-		transactionService.createTransaction(12,new Transaction(12, 1000, "shops",11));
+		transactionService.createTransaction(11,new Transaction(11, 1000, "bikes",10));
+		transactionService.createTransaction(12,new Transaction(12, 1000, "bikes",11));
 		transactionService.createTransaction(13,new Transaction(13, 3000, "cars",10));
 
 	}
@@ -55,7 +55,7 @@ public class TransactionServiceTest {
 
 	@Test
 	public void testGetTransactionsByType() {
-		String transaction = transactionService.getTransactionsByType("shops");
+		String transaction = transactionService.getTransactionsByType("bikes");
 		assertTrue("[11, 12]".equals(transaction));	
 	}
 
